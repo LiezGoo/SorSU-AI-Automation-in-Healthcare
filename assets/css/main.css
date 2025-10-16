@@ -829,27 +829,22 @@ h6 {
   }
 }
 
-/* Mobile refinements for footer: preserve colors/typography/alignment; only adjust spacing */
 @media (max-width: 576px) {
-  /* Reduce overall footer padding to make better use of vertical space */
   .footer-16 {
     padding: 40px 12px 24px;
   }
 
-  /* Only adjust vertical spacing between footer sections */
   .footer-16 .footer-main {
     margin-bottom: 24px;
     gap: 12px;
   }
 
-  /* Keep original alignment/typography; allow columns to occupy full width while preserving their alignment rules */
   .footer-16 .footer-left,
   .footer-16 .footer-right {
     width: 100%;
     padding: 0;
   }
 
-  /* Reduce spacing between contact lines only */
   .footer-16 .contact-info {
     gap: 6px;
   }
@@ -858,13 +853,11 @@ h6 {
     margin-bottom: 6px;
   }
 
-  /* Minor icon spacing tweaks (margins only) without changing color/size */
   .footer-16 .contact-info .contact-item i {
     margin-right: 0;
     margin-top: 0;
   }
 
-  /* Social icons: reduce gaps and vertical spacing; do not change color/size/alignment */
   .footer-16 .social-icons {
     gap: 14px;
     margin: 10px 0 6px;
@@ -882,7 +875,6 @@ h6 {
     margin: 0;
   }
 
-  /* Legal links — allow wrapping and reduce spacing between items */
   .footer-16 .footer-bottom .legal-links {
     gap: 12px;
     margin-top: 10px;

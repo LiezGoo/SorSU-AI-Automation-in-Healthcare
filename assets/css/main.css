@@ -946,14 +946,14 @@ h6 {
   bottom: -15px;
   z-index: 99999;
   background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   transition: all 0.4s;
 }
 
 .scroll-top i {
-  font-size: 24px;
+  font-size: 20px;
   color: var(--contrast-color);
   line-height: 0;
 }

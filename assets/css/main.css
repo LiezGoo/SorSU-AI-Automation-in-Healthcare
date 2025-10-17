@@ -369,7 +369,7 @@ h6 {
 
   .navmenu {
     padding: 0;
-    z-index: 9997;
+    z-index: 100001;
   }
 
   .navmenu ul {
@@ -466,7 +466,7 @@ h6 {
     top: 15px;
     right: 15px;
     margin-right: 0;
-    z-index: 9999;
+    z-index: 1000000;
   }
 
   .mobile-nav-active .navmenu {
@@ -475,6 +475,7 @@ h6 {
     inset: 0;
     background: rgba(33, 37, 41, 0.8);
     transition: 0.3s;
+    z-index: 999999;
   }
 
   .mobile-nav-active .navmenu>ul {
@@ -513,6 +514,34 @@ h6 {
   .mobile-nav-active .navmenu>ul {
     transform: translateY(0);
     opacity: 1;
+  }
+
+  /* Hide scroll-up and chatbot buttons when mobile menu is active */
+  .mobile-nav-active .scroll-top,
+  .mobile-nav-active #widgetIcon,
+  .mobile-nav-active button.focus-outline-round.focus-outset.focus-circle,
+  .mobile-nav-active button[id="widgetIcon"],
+  .mobile-nav-active button[aria-controls="df-chat-wrapper"],
+  .mobile-nav-active button[aria-label*="Chat"],
+  .mobile-nav-active button[aria-label*="chat"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0) !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Force hide all Dialogflow elements when mobile menu is active */
+  .mobile-nav-active df-messenger,
+  .mobile-nav-active [role="dialog"].chat-wrapper,
+  .mobile-nav-active .chat-wrapper {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
 
@@ -920,7 +949,7 @@ h6 {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
+  left: 15px;
   bottom: -15px;
   z-index: 99999;
   background-color: var(--accent-color);
@@ -6909,5 +6938,62 @@ html {
   
   .timeline-dot::after {
     animation: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Chatbot Styles - Prevent overlay with header
+--------------------------------------------------------------*/
+/* Ensure chatbot doesn't overlay the header navbar */
+df-messenger {
+  z-index: 100000 !important; /* Higher than scroll-up button (99999) */
+}
+
+/* Specific targeting for the chat wrapper dialog */
+div[role="dialog"].chat-wrapper {
+  z-index: 100000 !important;
+}
+
+/* Ensure the chatbot is positioned below the header */
+df-messenger,
+div[role="dialog"].chat-wrapper {
+  top: 80px !important; /* Adjust based on your header height */
+  position: fixed !important;
+}
+
+/* Mobile adjustments for smaller screens */
+@media (max-width: 768px) {
+  df-messenger,
+  div[role="dialog"].chat-wrapper {
+    top: 60px !important; /* Adjust for mobile header height */
+  }
+}
+
+/* Chatbot button positioning - now on right side since scroll-up is on left */
+#widgetIcon {
+  bottom: 15px !important; /* Same level as scroll-up button since they're on opposite sides */
+  right: 15px !important;
+  z-index: 100000 !important; /* Higher than scroll-up button (99999) */
+}
+
+/* Ensure the button stays in position */
+button.focus-outline-round.focus-outset.focus-circle {
+  bottom: 15px !important;
+  right: 15px !important;
+  z-index: 100000 !important;
+}
+
+/* Mobile adjustments for chatbot button */
+@media (max-width: 768px) {
+  #widgetIcon,
+  button.focus-outline-round.focus-outset.focus-circle {
+    bottom: 60px !important; /* Slightly higher on mobile */
+  }
+}
+
+/* Hide site name on mobile screens only (not tablets) */
+@media (max-width: 576px) {
+  .header .logo .sitename {
+    display: none !important;
   }
 }

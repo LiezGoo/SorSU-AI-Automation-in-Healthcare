@@ -31,6 +31,43 @@
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
+    
+    // Force hide/show chatbot and scroll buttons when menu toggles
+    setTimeout(() => {
+      const isMenuActive = document.querySelector('body').classList.contains('mobile-nav-active');
+      const chatbotButton = document.querySelector('#widgetIcon');
+      const scrollButton = document.querySelector('.scroll-top');
+      
+      if (isMenuActive) {
+        // Hide buttons when menu is open
+        if (chatbotButton) {
+          chatbotButton.style.setProperty('display', 'none', 'important');
+          chatbotButton.style.setProperty('visibility', 'hidden', 'important');
+          chatbotButton.style.setProperty('opacity', '0', 'important');
+          chatbotButton.style.setProperty('pointer-events', 'none', 'important');
+        }
+        if (scrollButton) {
+          scrollButton.style.setProperty('display', 'none', 'important');
+          scrollButton.style.setProperty('visibility', 'hidden', 'important');
+          scrollButton.style.setProperty('opacity', '0', 'important');
+          scrollButton.style.setProperty('pointer-events', 'none', 'important');
+        }
+      } else {
+        // Show buttons when menu is closed
+        if (chatbotButton) {
+          chatbotButton.style.removeProperty('display');
+          chatbotButton.style.removeProperty('visibility');
+          chatbotButton.style.removeProperty('opacity');
+          chatbotButton.style.removeProperty('pointer-events');
+        }
+        if (scrollButton) {
+          scrollButton.style.removeProperty('display');
+          scrollButton.style.removeProperty('visibility');
+          scrollButton.style.removeProperty('opacity');
+          scrollButton.style.removeProperty('pointer-events');
+        }
+      }
+    }, 50);
   }
   if (mobileNavToggleBtn) {
     mobileNavToggleBtn.addEventListener('click', mobileNavToogle);

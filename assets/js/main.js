@@ -137,7 +137,12 @@
    * Initiate glightbox
    */
   const glightbox = GLightbox({
-    selector: '.glightbox'
+    selector: '.glightbox',
+    closeButton: true,
+    closeOnOutsideClick: true,
+    closeEffect: 'fade',
+    autoplayVideos: true,
+    touchNavigation: true
   });
 
   /**

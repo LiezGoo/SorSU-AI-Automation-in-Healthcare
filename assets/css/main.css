@@ -3566,6 +3566,11 @@ html {
 @media (max-width: 768px) {
   .about .about-content h2 {
     font-size: 2rem;
+    text-align: center;
+  }
+
+  .about .about-content p {
+    text-align: center;
   }
 
   .about .stats-grid .stat-item .stat-number {

@@ -1525,6 +1525,17 @@ section,
   }
 }
 
+/* Responsive centering for hero section h1 and p on mobile */
+@media (max-width: 768px) {
+  .hero .hero-content h1 {
+    text-align: center;
+  }
+
+  .hero .hero-content .hero-description {
+    text-align: center;
+  }
+}
+
 /*--------------------------------------------------------------
 # Home About Section
 --------------------------------------------------------------*/
@@ -2354,6 +2365,10 @@ section,
 
   .featured-services .service-details h2 {
     font-size: 24px;
+  }
+
+  .featured-services .service-details h3 {
+    text-align: center;
   }
 
   .featured-services .service-details p {
@@ -6995,5 +7010,17 @@ button.focus-outline-round.focus-outset.focus-circle {
 @media (max-width: 576px) {
   .header .logo .sitename {
     display: none !important;
+  }
+}
+
+/* Responsive centering for Learn More button on mobile */
+@media (max-width: 768px) {
+  .btn-primary {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5rem 1rem; /* Reduced padding for smaller size */
+    font-size: 0.9rem; /* Smaller font size */
+    width: auto; /* Allow natural width, reduced from default */
   }
 }

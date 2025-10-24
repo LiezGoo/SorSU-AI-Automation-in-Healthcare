@@ -5529,6 +5529,8 @@ html {
 .faq .faq-item.faq-active .faq-header .faq-number {
   color: var(--accent-color);
   font-weight: 500;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .faq .faq-item.faq-active .faq-header h4 {
